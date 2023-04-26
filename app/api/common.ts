@@ -22,6 +22,9 @@ export async function requestOpenai(req: NextRequest) {
     console.log("[Org ID]", process.env.OPENAI_ORG_ID);
   }
 
+  console.log("[Request Body]", req.body);
+
+
   return fetch(`${baseUrl}/${openaiPath}`, {
     headers: {
       "Content-Type": "application/json",
