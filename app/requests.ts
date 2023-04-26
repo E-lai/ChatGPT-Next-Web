@@ -179,6 +179,7 @@ export async function requestChatStream(
       signal: controller.signal,
     });
     clearTimeout(reqTimeoutId);
+    console.warn("[requestChatStream]Request", req);
 
     let responseText = "";
 
@@ -207,12 +208,11 @@ export async function requestChatStream(
 
         const done = content.done;
         options?.onMessage(responseText, false);
-
         if (done) {
           break;
         }
       }
-
+      console.warn("[requestChatStream]ResponseText", responseText);
       finish();
     } else if (res.status === 401) {
       console.error("Unauthorized");
