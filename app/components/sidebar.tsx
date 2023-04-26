@@ -93,7 +93,7 @@ export function SideBar(props: { className?: string }) {
       <div className={styles["sidebar-header"]}>
         <div className={styles["sidebar-title"]}>ChatGPT 心怡版</div>
         <div className={styles["sidebar-sub-title"]}>
-          聊天记录储存在浏览器本地(切换设备或浏览器会消失).
+          聊天记录储存在本地(切换设备或浏览器会消失)
         </div>
         <div className={styles["sidebar-logo"]}>
           <ChatGptIcon />
@@ -125,7 +125,7 @@ export function SideBar(props: { className?: string }) {
             </Link>
           </div>
           <div className={styles["sidebar-action"]}>
-              <IconButton icon={<BotIcon />} title="给心怡用的" shadow />
+              <IconButton icon={<GithubIcon />} title="专门给心怡用的" shadow />
           </div>
         </div>
         <div>
