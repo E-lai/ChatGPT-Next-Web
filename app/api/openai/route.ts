@@ -5,6 +5,7 @@ async function makeRequest(req: NextRequest) {
   try {
     const api = await requestOpenai(req);
     const res = new NextResponse(api.body);
+    console.error("[OpenAI] makeRequest", api.body);
     res.headers.set("Content-Type", "application/json");
     res.headers.set("Cache-Control", "no-cache");
     return res;
@@ -23,10 +24,12 @@ async function makeRequest(req: NextRequest) {
 }
 
 export async function POST(req: NextRequest) {
+  console.error("[OpenAI] POST", req);
   return makeRequest(req);
 }
 
 export async function GET(req: NextRequest) {
+  console.error("[OpenAI] GET", req);
   return makeRequest(req);
 }
 
