@@ -5,6 +5,7 @@ import styles from "./home.module.scss";
 import { IconButton } from "./button";
 import SettingsIcon from "../icons/settings.svg";
 import GithubIcon from "../icons/github.svg";
+import BotIcon from "../icons/bot.svg";
 import ChatGptIcon from "../icons/chatgpt.svg";
 import AddIcon from "../icons/add.svg";
 import CloseIcon from "../icons/close.svg";
@@ -90,9 +91,9 @@ export function SideBar(props: { className?: string }) {
       }`}
     >
       <div className={styles["sidebar-header"]}>
-        <div className={styles["sidebar-title"]}>ChatGPT 私人版</div>
+        <div className={styles["sidebar-title"]}>ChatGPT 心怡版</div>
         <div className={styles["sidebar-sub-title"]}>
-          聊天记录储存在浏览器本地.
+          聊天记录储存在浏览器本地(切换设备或浏览器会消失).
         </div>
         <div className={styles["sidebar-logo"]}>
           <ChatGptIcon />
@@ -124,7 +125,7 @@ export function SideBar(props: { className?: string }) {
             </Link>
           </div>
           <div className={styles["sidebar-action"]}>
-              <IconButton icon={<ChatGptIcon />} title="给心怡用的" shadow />
+              <IconButton icon={<BotIcon />} title="给心怡用的" shadow />
           </div>
         </div>
         <div>
