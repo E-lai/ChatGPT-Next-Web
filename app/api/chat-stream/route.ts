@@ -5,8 +5,8 @@ import { requestOpenai } from "../common";
 async function createStream(req: NextRequest) {
   const encoder = new TextEncoder();
   const decoder = new TextDecoder();
-
   const res = await requestOpenai(req);
+  console.log("[createStream]request", req);
 
   const contentType = res.headers.get("Content-Type") ?? "";
   if (!contentType.includes("stream")) {
@@ -32,6 +32,7 @@ async function createStream(req: NextRequest) {
             const text = json.choices[0].delta.content;
             const queue = encoder.encode(text);
             controller.enqueue(queue);
+            console.log("[createStream]enqueue", queue);
           } catch (e) {
             controller.error(e);
           }
@@ -49,6 +50,7 @@ async function createStream(req: NextRequest) {
 
 export async function POST(req: NextRequest) {
   try {
+    console.log("[POST]request", req);
     const stream = await createStream(req);
     return new Response(stream);
   } catch (error) {
