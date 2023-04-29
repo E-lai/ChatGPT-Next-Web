@@ -7,10 +7,10 @@ import { getBuildConfig } from "./config/build";
 const buildConfig = getBuildConfig();
 
 export const metadata = {
-  title: "ChatGPT Web",
-  description: "For the cloudy days, I'll hold you close. For the sunny days, I'll bask in your radiance.",
+  title: "影蛋ChatGPT - 河北影蛋文化传播有限公司",
+  description: "影蛋ChatGPT - 河北影蛋文化传播有限公司",
   appleWebApp: {
-    title: "ChatGPT Web",
+    title: "影蛋ChatGPT - 河北影蛋文化传播有限公司",
     statusBarStyle: "default",
   },
   themeColor: "#fafafa",
