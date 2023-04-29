@@ -18,7 +18,7 @@ async function makeRequest(req: NextRequest) {
       },
       {
         status: 500,
-      }
+      },
     );
   }
 }
@@ -33,4 +33,4 @@ export async function GET(req: NextRequest) {
   return makeRequest(req);
 }
 
-export const runtime = "experimental-edge";
+export const runtime = "edge";
