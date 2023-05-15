@@ -8,7 +8,7 @@ const buildConfig = getBuildConfig();
 
 export const metadata = {
   title: "ChatGPT Next Web",
-  description: "Your personal ChatGPT Chat Bot.",
+  description: "For the cloudy days, I'll hold you close. For the sunny days, I'll bask in your radiance.",
   viewport: {
     width: "device-width",
     initialScale: 1,
