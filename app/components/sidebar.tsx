@@ -5,7 +5,6 @@ import styles from "./home.module.scss";
 import { IconButton } from "./button";
 import SettingsIcon from "../icons/settings.svg";
 import GithubIcon from "../icons/github.svg";
-import BotIcon from "../icons/bot.svg";
 import ChatGptIcon from "../icons/chatgpt.svg";
 import AddIcon from "../icons/add.svg";
 import CloseIcon from "../icons/close.svg";
@@ -39,13 +38,10 @@ function useHotKey() {
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.metaKey || e.altKey || e.ctrlKey) {
-        const n = chatStore.sessions.length;
-        const limit = (x: number) => (x + n) % n;
-        const i = chatStore.currentSessionIndex;
         if (e.key === "ArrowUp") {
-          chatStore.selectSession(limit(i - 1));
+          chatStore.nextSession(-1);
         } else if (e.key === "ArrowDown") {
-          chatStore.selectSession(limit(i + 1));
+          chatStore.nextSession(1);
         }
       }
     };
@@ -119,10 +115,12 @@ export function SideBar(props: { className?: string }) {
         shouldNarrow && styles["narrow-sidebar"]
       }`}
     >
-      <div className={styles["sidebar-header"]}>
-        <div className={styles["sidebar-title"]}>影蛋ChatGPT</div>
+      <div className={styles["sidebar-header"]} data-tauri-drag-region>
+        <div className={styles["sidebar-title"]} data-tauri-drag-region>
+          ChatGPT Next
+        </div>
         <div className={styles["sidebar-sub-title"]}>
-          聊天记录储存在本地(切换设备或浏览器会消失)
+          Build your own AI assistant.
         </div>
         <div className={styles["sidebar-logo"] + " no-dark"}>
           <ChatGptIcon />
@@ -175,7 +173,9 @@ export function SideBar(props: { className?: string }) {
             </Link>
           </div>
           <div className={styles["sidebar-action"]}>
-              <IconButton icon={<GithubIcon />} title="河北影蛋文化传播有限公司" shadow />
+            <a href={REPO_URL} target="_blank">
+              <IconButton icon={<GithubIcon />} shadow />
+            </a>
           </div>
         </div>
         <div>
