@@ -39,13 +39,10 @@ function useHotKey() {
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.metaKey || e.altKey || e.ctrlKey) {
-        const n = chatStore.sessions.length;
-        const limit = (x: number) => (x + n) % n;
-        const i = chatStore.currentSessionIndex;
         if (e.key === "ArrowUp") {
-          chatStore.selectSession(limit(i - 1));
+          chatStore.nextSession(-1);
         } else if (e.key === "ArrowDown") {
-          chatStore.selectSession(limit(i + 1));
+          chatStore.nextSession(1);
         }
       }
     };
@@ -119,8 +116,8 @@ export function SideBar(props: { className?: string }) {
         shouldNarrow && styles["narrow-sidebar"]
       }`}
     >
-      <div className={styles["sidebar-header"]}>
-        <div className={styles["sidebar-title"]}>ChatGPT 晴天版</div>
+      <div className={styles["sidebar-header"]} data-tauri-drag-region>
+        <div className={styles["sidebar-title"]} data-tauri-drag-region>ChatGPT 晴天版</div>
         <div className={styles["sidebar-sub-title"]}>
           聊天记录储存在本地(切换设备或浏览器会消失)
         </div>
