@@ -3,8 +3,9 @@ import "./styles/globals.scss";
 import "./styles/markdown.scss";
 import "./styles/highlight.scss";
 import { getClientConfig } from "./config/client";
+import { type Metadata } from 'next';
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "ChatGPT Next Web",
   description: "For the cloudy days, I'll hold you close. For the sunny days, I'll bask in your radiance.",
   viewport: {
